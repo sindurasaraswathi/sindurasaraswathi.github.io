@@ -602,7 +602,7 @@
 </head>
 <body>
     <!-- Fixed Left Column (Sidebar) -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <h1>Sindura Saraswathi</h1>
         <p></p><br>
         <img src="img/main_headshot.jpg" alt="Sindura Saraswathi"> 
@@ -619,6 +619,9 @@
 
     <!-- Fixed Navigation bar -->
     <nav>
+        <div class="menu-icon" onclick="toggleSidebar()">
+             <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
+         </div>
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
@@ -708,19 +711,6 @@
             <button class="close-btn" onclick="closeCitationPopup('citationPopup1')">Close</button>
         </div>
     
-        <script>
-            // Function to show the citation popup
-            function showCitationPopup(id) {
-                document.getElementById(id).style.display = 'block';
-                document.getElementById('overlay').style.display = 'block';
-            }
-    
-            // Function to close the citation popup
-            function closeCitationPopup(id) {
-                document.getElementById(id).style.display = 'none';
-                document.getElementById('overlay').style.display = 'none';
-            }
-        </script>
         
         <!-- Industry Experience Section -->
         <section id="experience" class="left-column">
@@ -916,5 +906,31 @@
     <footer>
         <p>&copy; 2025 Sindura Saraswathi. All rights reserved.</p>
     </footer>
+    
+    <script>
+        // Function to show the citation popup
+        function showCitationPopup(id) {
+            document.getElementById(id).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Function to close the citation popup
+        function closeCitationPopup(id) {
+            document.getElementById(id).style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+        
+            function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                const content = document.getElementById('content');
+                
+                // Toggle sidebar visibility
+                sidebar.classList.toggle('expanded');
+                
+                // Adjust content margin when sidebar is expanded
+                content.classList.toggle('expanded');
+            }
+    </script>
+    
 </body>
 </html>
