@@ -33,7 +33,7 @@
         /* Fixed Left Column (Sidebar) */
         .sidebar {
             position: fixed;
-            top: 0; /* Offset for the fixed navbar */
+            top: 50px; /* Offset for the fixed navbar */
             left: 0;
             width: 20%;
             height: 100%;
@@ -46,11 +46,17 @@
             justify-content: flex-start;
             align-items: center;
         }
+        
+                /* Sidebar hidden */
+        .sidebar.hidden {
+            left: -50%; 
+        }
+
 
         .sidebar img {
             border-radius: 50%;
             width: 80%;
-            height: 40%;
+            height: 30%;
             object-fit: cover;
             object-position: top;
             margin-bottom: 20px;
@@ -78,36 +84,103 @@
             color: #aaa;
         }
         
-       /* Fixed Navigation Bar */
+        /* Fixed Navigation Bar */
         nav {
             position: fixed;
-            top: 0; /* Start below the sidebar */
-            left: 20%; /* Position to the right of the sidebar */
-            width: calc(100% - 20%); /* Take the remaining width */
+            top: 0; /* Fixed at the top */
+            left: 0; /* Align the navbar with the left edge */
+            width: 100%; /* Take the full width of the screen */
             background-color: #0277BD;
             color: #fff;
             display: flex;
-            justify-content: center;
-            padding: 10px 0;
+            justify-content: center; /* Center the nav items */
+            align-items: center; /* Vertically align the items */
+            padding: 10px 20px; /* Add padding to the navbar */
             z-index: 1000; /* Ensure it's on top of other elements */
         }
-
+        
+        nav h1 {
+            position: absolute; /* Position the title on the left side */
+            left: 60px;
+            top: 50%;
+            transform: translateY(-50%); /* Center the title vertically */
+            margin: 0;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        
+        /* Container for the links */
+        nav .nav-links {
+            display: flex;
+            justify-content: center; /* Center the links */
+            width: 100%; /* Make the container take the full width */
+            padding-left: 50px; /* Add some space on the left side for better layout */
+        }
+        
+        /* Style for the navigation links */
         nav a {
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
             transition: background-color 0.3s;
         }
-
+        
         nav a:hover {
-            background-color: #01579B;
+            background-color: #01579B; /* Hover effect */
         }
+        
+        /* Add media query to ensure responsive layout */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column; /* Stack the contents vertically on smaller screens */
+                align-items: center; /* Center-align the navbar items */
+            }
+        
+            nav .nav-links {
+                flex-direction: column; /* Stack the links vertically on smaller screens */
+            }
+        
+            nav a {
+                padding: 10px 15px; /* Adjust link padding on smaller screens */
+            }
+        
+            nav h1 {
+                text-align: center; /* Center the heading on small screens */
+                position: static; /* Reset position for small screens */
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Sidebar toggle icon visibility on mobile */
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1.6rem;
+            
+            z-index: 1100; /* Ensure the menu icon appears above the sidebar */
+        }
+        
+        /* Show the menu icon on mobile (for smaller screens) */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block; /* Display the hamburger icon on mobile */
+            }
+        }
+
 
         /* Main content section */
         .content {
             margin-left: 25%; /* Offset for the fixed sidebar */
             padding: 20px;
             flex: 1;
+        }
+        
+        /* Content when sidebar is expanded (shifted right) */
+        .content.expanded {
+            margin-left: 2%; /* Shift the content to the right when the sidebar is expanded */
         }
 
         /* Two-column layout for content below navigation */
@@ -462,7 +535,7 @@
             transition: all 0.3s ease-in-out;
         }
         
-        #news:hover {
+        .news:hover {
             transform: translateY(-5px); /* Slight lift effect on hover */
         }
         
@@ -553,81 +626,22 @@
         }
         
         
-
-                /* Mobile Specific Styles */
+        /* Media Query for smaller screens (Mobile and Tablet) */
         @media (max-width: 768px) {
-            /* Sidebar is hidden on mobile by default */
-            .sidebar {
-                left: -250px; /* Initially hidden */
-            }
-        
-            .sidebar.expanded {
-                left: 0; /* Show sidebar when expanded */
-            }
-        
-            /* Navbar remains visible at top */
-            nav {
-                left: 0;
-                width: 100%;
-            }
-        
-            /* Hide navbar links by default */
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-            }
-        
-            /* Show the navbar links when active (when menu is toggled) */
-            nav.active ul {
-                display: flex;
-            }
-        
-            /* Show the hamburger menu icon only on mobile */
-            .menu-icon {
-                display: block; /* Display the hamburger icon */
-                position: absolute;
-                top: 10px;
-                right: 20px;
-                font-size: 30px;
-                cursor: pointer;
-                z-index: 300; /* Ensures the icon is on top of sidebar */
-            }
-        
-            /* Main content layout on mobile */
             .content {
-                margin-left: 0; /* Content will occupy full width on mobile */
-                padding-top: 60px; /* Add space for the fixed navbar */
-            }
-        
-            /* Show expanded content when sidebar is open */
-            .content.expanded {
-                margin-left: 250px; /* Content shifts when sidebar expands */
-            }
-        
-            /* Hide sidebar and menu icon for larger screens */
-            .menu-icon {
-                display: none; /* Hide the hamburger menu by default on larger screens */
+                margin-left: 0; /* On smaller screens, content takes full width */
+                padding: 10px; /* Adjust padding for smaller screens */
             }
         }
         
-        @media (min-width: 769px) {
-            /* On larger screens, remove the menu icon completely */
-            .menu-icon {
-                display: none; /* Hide on screens larger than 768px */
-            }
-        }
-
-                    
+        
 
     </style>
 </head>
 <body>
     <!-- Fixed Left Column (Sidebar) -->
     <div class="sidebar" id="sidebar">
-        <h1>Sindura Saraswathi</h1>
-        <p></p><br>
+        <br>
         <img src="img/main_headshot.jpg" alt="Sindura Saraswathi"> 
         <p>PhD Student<br><a href="https://cci.charlotte.edu/" target="_blank">College of Computing and Informatics</a><a href="https://www.charlotte.edu/" target="_blank">University of North Carolina</a><br>
          Bitcoin & Lightning Network Researcher</p>
@@ -643,8 +657,9 @@
     <!-- Fixed Navigation bar -->
     <nav>
         <div class="menu-icon" onclick="toggleSidebar()">
-             <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
-         </div>
+            <i class="fas fa-bars"></i> <!-- Font Awesome Hamburger Icon -->
+        </div>
+    <h1>Sindura Saraswathi</h1>
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
@@ -657,7 +672,7 @@
     <!-- Main Content -->
     <div class="main-container">
         <!-- Right Column for Content -->
-        <div class="content">
+        <div class="content" id="content">
             <!-- About Me Section -->
         <section id="about" class="left-column" style="background-color: #ffffff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">            
             <div class="about-content" style="margin-top: 20px;">
@@ -948,7 +963,7 @@
                 const content = document.getElementById('content');
                 
                 // Toggle sidebar visibility
-                sidebar.classList.toggle('expanded');
+                sidebar.classList.toggle('hidden');
                 
                 // Adjust content margin when sidebar is expanded
                 content.classList.toggle('expanded');
