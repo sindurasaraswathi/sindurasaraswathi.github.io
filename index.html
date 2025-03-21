@@ -50,8 +50,8 @@
 
         .sidebar img {
             border-radius: 50%;
-            width: 290px;
-            height: 290px;
+            width: 250px;
+            height: 250px;
             object-fit: cover;
             margin-bottom: 20px;
         }
@@ -551,7 +551,115 @@
                 grid-template-columns: 1fr 1fr 1fr 1fr;
             }
         }
+        
+        /* Mobile Navbar */
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
 
+        /* Fixed Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 340px; /* Start below the sidebar */
+            width: calc(100% - 340px);
+            background-color: #0277BD;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #01579B;
+        }
+
+        /* Flexbox for Horizontal Layout */
+        .cards-container {
+            display: flex;
+            justify-content: left;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            border-left: 5px solid #01579B;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            /* Sidebar is hidden on mobile */
+            .sidebar {
+                display: none;
+            }
+
+            /* Navbar becomes a hamburger menu */
+            nav {
+                left: 0;
+                width: 100%;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            /* Mobile-specific layout adjustments */
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+            }
+
+            .content {
+                margin-left: 0; /* Full width on mobile */
+            }
+
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Styles for Toggle Menu */
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+        }
                     
 
     </style>
@@ -560,7 +668,7 @@
     <!-- Fixed Left Column (Sidebar) -->
     <div class="sidebar">
         <h1>Sindura Saraswathi</h1>
-        <p></p><br><br>
+        <p></p><br>
         <img src="img/main_headshot.jpg" alt="Sindura Saraswathi"> 
         <p>PhD Student<br><a href="https://cci.charlotte.edu/" target="_blank">College of Computing and Informatics</a><a href="https://www.charlotte.edu/" target="_blank">University of North Carolina</a><br>
          Bitcoin & Lightning Network Researcher</p>
