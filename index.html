@@ -77,8 +77,15 @@
         .sidebar a:hover {
             color: #aaa;
         }
-
-        /* Fixed Navigation Bar */
+        
+        /* Mobile Navbar */
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+       /* Fixed Navigation Bar */
         nav {
             position: fixed;
             top: 0; /* Start below the sidebar */
@@ -552,114 +559,43 @@
             }
         }
         
-        /* Mobile Navbar */
-        .menu-icon {
-            display: none;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        }
+        
 
-        /* Fixed Navigation Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 340px; /* Start below the sidebar */
-            width: calc(100% - 340px);
-            background-color: #0277BD;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #01579B;
-        }
-
-        /* Flexbox for Horizontal Layout */
-        .cards-container {
-            display: flex;
-            justify-content: left;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            border-left: 5px solid #01579B;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Media Queries for Mobile */
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            /* Sidebar is hidden on mobile */
+            /* Sidebar toggle on mobile */
             .sidebar {
-                display: none;
+                left: -250px; /* Sidebar hidden off-screen */
             }
 
-            /* Navbar becomes a hamburger menu */
+            .sidebar.expanded {
+                left: 0; /* Sidebar is visible when expanded */
+            }
+
+            /* Navbar fully visible */
             nav {
                 left: 0;
-                width: 100%;
             }
 
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            nav.active ul {
-                display: flex;
-            }
-
-            /* Mobile-specific layout adjustments */
             .menu-icon {
                 display: block;
                 position: absolute;
                 top: 10px;
                 right: 20px;
+                font-size: 30px;
+                cursor: pointer;
             }
 
+            /* Adjust content layout on mobile */
             .content {
-                margin-left: 0; /* Full width on mobile */
+                margin-left: 0; /* Content will occupy full width */
             }
 
-            .cards-container {
-                flex-direction: column;
-                align-items: center;
+            .content.expanded {
+                margin-left: 250px; /* Offset the content when sidebar is expanded */
             }
         }
 
-        /* Styles for Toggle Menu */
-        .menu-icon {
-            display: block;
-            cursor: pointer;
-        }
                     
 
     </style>
