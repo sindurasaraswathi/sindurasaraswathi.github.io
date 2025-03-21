@@ -1,228 +1,876 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sindura Saraswathi</title>
-<!--
-Neaty HTML Template
-http://www.templatemo.com/tm-501-neaty
--->
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/magnific-popup.css">                                <!-- Magnific pop up style, http://dimsemenov.com/plugins/magnific-popup/ -->
-    <link rel="stylesheet" href="css/templatemo-style.css">                                   <!-- Templatemo style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN for Icons -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>     
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* White background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            padding-top: 50px; /* Offset for the fixed navbar */
+        }
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling */
+            scroll-padding-top: 80px; /* Adjust this based on your navbar height */
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-          <![endif]-->
-</head>
-    <body>        
-        <div class="container">
-            <div class="row">
-                <div class="tm-left-right-container">
-                    <!-- Left column: logo and menu -->
-                    <div class="tm-blue-bg tm-left-column">                        
-                        <div class="tm-logo-div text-xs-center">
-                            <img src="img/main_headshot.jpg" alt="Image" class="img-fluid">    
-                            <h1 class="tm-site-name">Sindura Saraswathi</h1>
-                        </div>
-                        <nav class="tm-main-nav">
-                            <ul class="tm-main-nav-ul">
-                                <li class="tm-nav-item">
-                                    <a href="#welcome" class="tm-nav-item-link">Welcome</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#about" class="tm-nav-item-link">About Me</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#galleryone" class="tm-nav-item-link">Education</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#secondgallery" class="tm-nav-item-link">Experience</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#thirdgallery" class="tm-nav-item-link">My Contributions</a>
-                                </li>
-                                <li class="tm-nav-item">
-                                    <a href="#contact" class="tm-nav-item-link">Contact Me</a>
-                                </li>
-                            </ul>
-                        </nav>                                         
-                    </div> <!-- Left column: logo and menu -->
-                    
-                    <!-- Right column: content -->
-                    <div class="tm-right-column">
 
-                        <div class="tm-content-div">
-                            <!-- Welcome section -->
-                            <section id="welcome" class="tm-section">
-                                <header>
-                                    <h2 class="tm-blue-text tm-welcome-title tm-margin-b-45">Welcome to Sindura's Portfolio</h2>
-                                </header>
-                                
-                                <!--<p>Neaty is simple and clean design HTML CSS template for any kind of website. Feel free to use this layout. Please tell your friends about TemplateMo website. Thank you. Suspendisse imperdiet, felis eu hendrerit pretium, sapien mauris blandit arcu, et accumsan neque est ut erat. Vivamus eget tellus euismod, interdum nibh at, eleifend justo. Quisque placerat ante in ex tempor, ultrices bibendum nunc finibus. Etiam luctus nec eros vel pulvinar.</p>-->
-                            </section>
-                            <!-- About section -->
-                            <section id="about" class="tm-section">
-                                <div class="row">                                                                
-                                    <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 push-lg-4 push-md-5">
-                                        <header>
-                                            <h2 class="tm-blue-text tm-section-title tm-margin-b-45">About Me</h2>
-                                        </header>
-                                        <p>I am Sindura Saraswathi, a PhD student at the University of North Carolina at Charlotte, where I focus my research on the Bitcoin Lightning Network, a second-layer protocol designed to enhance Bitcoin's scalability. I am focused on developing innovative algorithms to enhance payment delivery within the Lightning Network. I am fortunate to be advised by Dr. Christian Kümmerle.</p><br>
-                                        <p>Beyond my academic pursuits, I am a trained Indian classical singer. I enjoy solving Rubik's cubes, traveling, and playing badminton.</p></a>
-                                    </div>
-                                </div>                            
-                            </section>  
+        /* Fixed Left Column (Sidebar) */
+        .sidebar {
+            position: fixed;
+            top: 0; /* Offset for the fixed navbar */
+            left: 0;
+            width: 300px;
+            height: 100%;
+            background-color: #0277BD;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
 
-                            <!-- Gallery One section -->     
-                            <section id="galleryone" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Education</h2></header>
-                                <!--<div class="tm-gallery-container tm-gallery-1">
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-03.jpg"><img src="img/neaty-03.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-04.jpg"><img src="img/neaty-04.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-05.jpg"><img src="img/neaty-05.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-06.jpg"><img src="img/neaty-06.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-1">
-                                        <a href="img/neaty-07.jpg"><img src="img/neaty-07.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>                                    
-                                </div>-->
-                            </section>
+        .sidebar img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
 
-                            <!-- Second Gallery section -->     
-                            <section id="secondgallery" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Experience</h2></header>
-                                <!--<div class="tm-gallery-container tm-gallery-2">
-                                    <div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-08.jpg"><img src="img/neaty-08.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-09.jpg"><img src="img/neaty-09.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-2">
-                                        <a href="img/neaty-10.jpg"><img src="img/neaty-10.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>                                    
-                                </div>-->
-                            </section>
+        .sidebar h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
 
-                            <!-- Third Gallery section -->     
-                            <section id="thirdgallery" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">My Contributions</h2></header>
-                                <!--<div class="tm-gallery-container tm-gallery-3">
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-11.jpg"><img src="img/neaty-11.jpg" alt="Image" class="img-fluid tm-img-tn"></a>    
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-12.jpg"><img src="img/neaty-12.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-13.jpg"><img src="img/neaty-13.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>
-                                    <div class="tm-img-container tm-img-container-3">
-                                        <a href="img/neaty-14.jpg"><img src="img/neaty-14.jpg" alt="Image" class="img-fluid tm-img-tn"></a>
-                                    </div>                                    
-                                </div>-->
-                            </section>
+        .sidebar p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
 
-                            <!-- Contact Us section -->
-                            <section id="contact" class="tm-section">
-                                <header><h2 class="tm-blue-text tm-section-title tm-margin-b-30">Contact</h2></header>
+        .sidebar a {
+            color: #fff;
+            text-decoration: underline;
+            margin: 5px 0;
+            font-size: 1rem;
+            display: block;
+        }
 
-                               <!-- <div class="row">
-                                    <div class="col-lg-6">
-                                        <form action="#contact" method="post" class="contact-form">
-                                            <div class="form-group">
-                                                <input type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name"  required/>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email"  required/>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea id="contact_message" name="contact_message" class="form-control" rows="9" placeholder="Message" required></textarea>
-                                            </div>                                            
-                                            <button type="submit" class="float-right tm-button">Send</button>
-                                        </form>    
-                                    </div>
-                                    
-                                    <div class="col-lg-6 tm-contact-right">
-                                        <!--<p>
-                                        Nullam vivera fermentum purus id blandit. Phasellus lacus mi, porta vel sodales nec, faucibus non eros. Nulla at quam vel risus laoreet tincidunt in in sem.    
-                                        </p>
-                                        <address>
-                                            11/22 Etiam mauris erat,<br>
-                                            Vestibulum eu augue nec, 10220<br>
-                                            Nam consequat
-                                        </address>-->
-                                    </div>
-                                </div>
-                                
-                            </section>
-                            <!--
-                            <footer>
-                               <p class="tm-copyright-p">Copyright &copy; <span class="tm-current-year">2017</span> Your Company
-                                
-                                | Designed by TemplateMo</p>
-                            </footer>-->
-                        </div>  
-                        
-                    </div> <!-- Right column: content -->
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
+        .sidebar a:hover {
+            color: #aaa;
+        }
+
+        /* Fixed Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0; /* Start below the sidebar */
+            left: 340px; /* Position to the right of the sidebar */
+            width: calc(100% - 340px); /* Take the remaining width */
+            background-color: #0277BD;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            z-index: 1000; /* Ensure it's on top of other elements */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #01579B;
+        }
+
+        /* Main content section */
+        .content {
+            margin-left: 350px; /* Offset for the fixed sidebar */
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Two-column layout for content below navigation */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .left-column {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .right-column {
+            flex: 2;
+        }
+
+        /* Section title styles */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .research, .publications, .teaching, .contact {
+            margin-bottom: 40px;
+        }
+
+        .research ul, .publications ul, .teaching ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .research li, .publications li, .teaching li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 20px;
+        }
+        .social-links {
+            display: flex;  /* Use flexbox to align items horizontally */
+            gap: 15px;  /* Optional: adds space between each item */
+            justify-content: center;  /* Optional: center the icons in the container */
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #fff;  /* Change the color as needed */
+            font-size: 1.5rem;  /* Adjust font size for text */
+        }
+
+        .social-links a:hover {
+            color: #555;  /* Optional: change color on hover */
+        }
+        
+        /* Flexbox for Horizontal Layout */
+        .cards-container {
+            display: flex; /* Use flexbox for horizontal layout */
+            justify-content: left; /* Distribute cards evenly */
+            gap: 20px; /* Space between cards */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Full width on small screens */
+            max-width: 400px; /* Set a max width for each card */
+            border-left: 5px solid #01579B;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .cards-container {
+                flex-direction: column; /* Stack the cards on mobile */
+                align-items: center; /* Center the cards horizontally */
+            }
+        }
+        
+        .citation-popup {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            z-index: 1000;
+        }
+
+        .citation-popup h3 {
+            margin-bottom: 10px;
+        }
+
+        .citation-popup p {
+            margin-bottom: 15px;
+        }
+
+        .citation-popup .close-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .citation-popup .close-btn:hover {
+            background-color: #01579B;
+        }
+
+        /* To darken the background when popup is active */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
                 
-        <!-- load JS files -->
-        <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-        <script src="js/jquery.magnific-popup.min.js"></script>     <!-- Magnific pop-up (http://dimsemenov.com/plugins/magnific-popup/) -->
-        <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-        <script>     
-       
-            $(document).ready(function(){
+        .btn-cite {
+            background-color: #ffffff; /* White background */
+            color: black; /* Black text */
+            padding: 6px 15px;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid #0277BD; /* Blue border */
+            border-radius: 3px;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-right: 10px; /* Spacing between buttons */
+        }
+        
+        .btn-cite a {
+            text-decoration: none;
+            border: none;
+            color: #000; /* Blue text color */
+        }
+        
+        .btn-cite:hover {
+            background-color: #01579B; /* Blue background on hover */
+            color: white; /* White text color on hover */
+        }
+        
+        .btn-cite:focus {
+            outline: none; /* Remove focus outline */
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-left: 20px;
+            margin-top: 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #000;
+            margin-left: 30px;
+        }
+        
+        .timeline-content {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0.1, 0.1);
+            margin-left: 50px; /* Offset content from the line */
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 50;
+            margin-right: 50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 50;
+            margin-right: 50px;
+        }
+        
+        .timeline-item h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .timeline-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-item p {
+            font-size: 1rem;
+            color: #555;
+            margin: 0;
+        }
+        
+        .timeline-item a {
+            text-decoration: none;
+            color: #01579B;
+            font-weight: bold;
+        }
+        
+        .timeline-item a:hover {
+            text-decoration: underline;
+        }
+        
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 12px;
+            width: 12px;
+            height: 12px;
+            background-color: #01579B;
+            border-radius: 50%;
+        }
 
-                // Single page nav
-                $('.tm-main-nav').singlePageNav({
-                    'currentClass' : "active",
-                    offset : 20
-                });
+        .education-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .education-entry {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .icon-container {
+            width: 50px;
+            height: 50px;
+            background-color: #01579B;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .education-content {
+            flex: 1;
+        }
+        
+        .education-content h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .education-content h4 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #555;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .education-content p {
+            font-size: 1rem;
+            color: #777;
+            margin: 0;
+        }
 
-                // Magnific pop up
-                $('.tm-gallery-1').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+        .presentations {
+            padding: 40px 20px;
+            background-color: #f9f9f9; /* Light background color */
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        
+        .presentation-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .presentation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .presentation-header {
+            margin-bottom: 10px;
+        }
+        
+        .presentation-header h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        
+        .presentation-header p.presentation-venue {
+            font-size: 1.1rem;
+            color: #555;
+            font-style: italic;
+            margin-top: 5px;
+        }
+                
+        .news {
+            background-color: #f8f9fc;
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        #news:hover {
+            transform: translateY(-5px); /* Slight lift effect on hover */
+        }
+        
+        .news-intro {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .news-items {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .news-item {
+            display: flex;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            align-items: center;
+        }
+        
+        .news-item:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .news-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #01579B;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 2rem;
+        }
+        
+        .news-content {
+            flex: 1;
+        }
+        
+        .news-item .news-date {
+            font-size: 1rem;
+            color: #01579B;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .news-item h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .news-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .news-link {
+            color: #01579B;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .news-link:hover {
+            color: #013f7d;
+        }
+        
+        @media (min-width: 768px) {
+            .news-items {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .news-items {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
 
-                $('.tm-gallery-2').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+                    
 
-                $('.tm-gallery-3').magnificPopup({
-                  delegate: 'a', // child items selector, by clicking on it popup will open
-                  type: 'image',
-                  gallery: {enabled:true}
-                  // other options
-                }); 
+    </style>
+</head>
+<body>
+    <!-- Fixed Left Column (Sidebar) -->
+    <div class="sidebar">
+        <h1>Sindura Saraswathi</h1>
+        <p></p><br><br><br><br><br><br><br><br>
+        <img src="img/main_headshot.jpg" alt="Sindura Saraswathi"> 
+        <p>PhD Student<br><a href="https://cci.charlotte.edu/" target="_blank">College of Computing and Informatics</a><a href="https://www.charlotte.edu/" target="_blank">University of North Carolina</a><br>
+         Bitcoin & Lightning Network Researcher</p>
+        <div class="social-links">
+            <a href="mailto:ssarasw2@charlotte.edu"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/sindurasaraswathi" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sindurasaraswathi/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/btcsindura" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://scholar.google.com/citations?user=7P6hqWYAAAAJ&hl=en&oi=ao" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+        </div>
+     </div>
 
-                $('.tm-current-year').text(new Date().getFullYear());                
-            });
-        </script>             
+    <!-- Fixed Navigation bar -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#presentations">Presentations</a>
+        <a href="#news">Updates</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Right Column for Content -->
+        <div class="content">
+            <!-- About Me Section -->
+        <section id="about" class="left-column" style="background-color: #ffffff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">            
+            <div class="about-content" style="margin-top: 20px;">
+                <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+                    Hi, I am a PhD student at the University of North Carolina at Charlotte, where I focus my research on the Bitcoin Lightning Network, a second-layer protocol designed to enhance Bitcoin's scalability. I am focused on developing innovative algorithms to enhance payment delivery within the Lightning Network. I am fortunate to be advised by 
+                    <a href="https://webpages.charlotte.edu/ckuemme1/" target="_blank" style="color: #01579B; font-weight: bold;">Dr. Christian Kümmerle</a>.
+                </p>
+                <p style="font-size: 1.1rem; color: #333; line-height: 1.6; margin-top: 20px;">
+                    Beyond my academic pursuits, I am a trained Indian classical singer. I enjoy solving Rubik's cubes, traveling, and playing badminton.
+                </p>
+            </div>
+        </section>
+
+            
+           <div class="main-content">
+        <section id="research" class="left-column">
+        <h2 class="section-title">Research</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Bitcoin</li>
+                        <li>Lightning Network</li>
+                        <li>Non-Convex Optimization</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>In-progress</h3>
+                    <p> I am currently working on,</p>
+                    <ul>
+                        <li>Developing a new algorithm for Multi-Part Payments (MPP) within the LN</li>
+                        <li>Designing optimal threshold multisignature for Bitcoin</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    
+        <!-- Publications Section -->
+        <section id="publications" class="left-column">
+        <h2 class="section-title">Publications</h2>
+        
+        <ul>
+
+            <i class="fas fa-file-alt"></i>
+            <p style="display: inline; margin-left: 10px;"><strong>Sindura Saraswathi</strong>, Christian Kümmerle. <i>An Exposition of Pathfinding Strategies Within Lightning Network Clients</i>.<br> Accepted at IEEE ICBC 2025.</p>
+            <br><br><a class="btn-cite" href="https://arxiv.org/pdf/2410.13784" target="_blank">arXiv</a>
+            <a class="btn-cite" href="#" onclick="showCitationPopup('citationPopup1')">Cite</a>
+            <a class="btn-cite" href="https://github.com/sindurasaraswathi/LN-PathFinding" target="_blank">Code</a>
+        </ul>
+
+        </section>
+        <!-- Overlay background -->
+        <div class="overlay" id="overlay" onclick="closeCitationPopup()"></div>
+        
+        <!-- Citation Popup -->
+        <div class="citation-popup" id="citationPopup1">
+            <h3>Citation Information</h3>
+            <p><strong>Title:</strong>An Exposition of Pathfinding Strategies Within Lightning Network Clients</p>
+            <p><strong>Authors:</strong>Sindura Saraswathi, Christian Kümmerle</p>
+            <p><strong>Journal/Conference:</strong>arXiv preprint arXiv:2410.13784</p>
+            <p><strong>Year:</strong>2024</p>
+            <br>
+            <!--<p><strong>DOI:</strong> <a href="https://example.com" target="_blank">10.xxxx/xxxxxx</a></p>-->
+            <h4>BibTeX</h4>
+            <p>@article{saraswathi2024exposition,<br>
+                  title={An Exposition of Pathfinding Strategies Within Lightning Network Clients},<br>
+                  author={Saraswathi, Sindura and K{\"u}mmerle, Christian},<br>
+                  journal={arXiv preprint arXiv:2410.13784},<br>
+                  year={2024}<br>
+                }
+            </p>
+            <button class="close-btn" onclick="closeCitationPopup('citationPopup1')">Close</button>
+        </div>
+    
+        <script>
+            // Function to show the citation popup
+            function showCitationPopup(id) {
+                document.getElementById(id).style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+    
+            // Function to close the citation popup
+            function closeCitationPopup(id) {
+                document.getElementById(id).style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        </script>
+        
+        <!-- Industry Experience Section -->
+        <section id="experience" class="left-column">
+            <h2 class="section-title">Industry Experience</h2>
+            <div class="timeline">
+                <!-- LX Research Labs Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3><strong>LX Research Labs </strong><a class="fas fa-arrow-up-right-from-square" href="https://www.lxresearch.co/"></a></h3>
+                        <h4>Research Consultant Intern (June 2024 - August 2024), San Jose, USA</h4>
+                        <p>Conducted comprehensive Bitcoin L2 risk reviews, contributing to <a href="https://www.bitcoinlayers.org/">Bitcoin Layers'</a> analysis. Researched and evaluated covenant-enabling opcodes (CTV, LNHANCE) and other opcodes (CAT, ZKP, CSFS) to analyze risks and use cases, supporting informed protocol development.</p>
+                    </div>
+                </div>
+        
+                <!-- Tata Consultancy Services Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3><strong>Tata Consultancy Services </strong><a class="fas fa-arrow-up-right-from-square" href="https://www.tcs.com/"></a></h3>
+                        <h4>Software Developer (July 2019 - December 2021), Bengaluru, India</h4>
+                        <p>Developed data transformation modules, CI/CD pipelines, and a scalable BAM API for Credit Suisse's Business Record Management (BRM) project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                    <!-- Academic Experience Section -->
+        <section id="experience" class="left-column">
+            <h2 class="section-title">Academic Experience</h2>
+            <div class="timeline">
+                <!-- UNC Charlotte Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3><strong>University of North Carolina at Charlotte</strong></h3>
+                        <h4>Graduate Research Assistant (January 2025 - Presenst)</h4>
+                        <p>Developing novel algorithm for Multi-Path Pathfinding in the Lighting Network.</p>
+        
+                        <h4>Graduate Teaching Assistant (August 2024 - December 2024)</h4>
+                        <p>Teaching assistant for the course "Bitcoin: Programming the Future of Money - ITCS 4010/5010".</p>
+                        
+                        <h4>Graduate Research Assistant (January 2024 - June 2024)</h4>
+                        <p>Developed a simulation model to compare various Lightning Network implementations based on performance metrics such as reliability, fees, path length, and timelock (delay).</p>
+        
+                        <h4>Research Intern (June 2023 - December 2023)</h4>
+                        <p>Analyzed pathfinding algorithms used in major Lightning Network implementations, including Core Lightning, Eclair, LND, and LDK.</p>
+                    </div>
+                </div>
+        
+                <!-- Texas A&M University Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3><strong>Texas A&M University, College Station</strong></h3>
+                        <h4>Graduate Teaching Assistant (January 2023 - May 2023)</h4>
+                        <p>Teaching assistant for the course "The Bitcoin Protocol - CSCE 489".</p>
+        
+                        <h4>Graduate Research Assistant (June 2022 - December 2022)</h4>
+                        <p>Studied finite fields, elliptic curves, scripts, transactions, and blocks to enhance understanding and programming of Bitcoin. Worked extensively with Bitcoin Core, RPC commands, and full nodes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Education Section -->
+        <section id="education" class="left-column">
+            <h2 class="section-title">Education</h2>
+            <div class="education-container">
+                <!-- Ph.D. -->
+                <div class="education-entry">
+                    <div class="icon-container">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3><strong>Ph.D. in Computer Science</strong></h3>
+                        <h4>University of North Carolina at Charlotte</h4>
+                        <p>January 2024 - Present</p>
+                    </div>
+                </div>
+        
+                <!-- M.S. -->
+                <div class="education-entry">
+                    <div class="icon-container">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3><strong>M.S. in Computer Engineering</strong></h3>
+                        <h4>Texas A&M University, College Station</h4>
+                        <p>January 2022 - December 2023</p>
+                        
+                    </div>
+                </div>
+        
+                <!-- B.E. -->
+                <div class="education-entry">
+                    <div class="icon-container">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3><strong>B.E. in Electronics and Communication Engineering</strong></h3>
+                        <h4>Visvesvaraya Technological University, India</h4>
+                        <p>August 2015 - July 2019</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                 <!-- Presentations Section -->
+        <section id="presentations" class="left-column">
+            <h2 class="section-title">Presentations</h2>
+            <div class="presentation-item">
+                <div class="presentation-header">
+                    <p>An Exposition of Pathfinding Strategies Within Lightning Network Clients</p>
+                    <ul>
+                    <li>
+                    <p class="presentation-venue">TABConf 5, 2024, Atlanta, Georgia, USA</p>
+                </div>
+            </div>
+        </section>
+
+
+            <!-- Contact Section -->
+                    <!-- News Section -->
+        <section id="news" class="news-section">
+            <h2 class="section-title" style="text-align: center;">Latest News & Updates</h2>
+            <p class="news-intro">Stay informed about my research, publications, and upcoming events. Here's a quick update on what’s happening:</p>
+            
+            <div class="news-items">
+                <div class="news-item">
+                    <div class="news-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="news-content">
+                        <!--<span class="news-date">March 2025</span>-->
+                        <h3><strong>Article:</strong></h3>
+                        <p>
+                            <a href="https://delvingbitcoin.org/t/an-exposition-of-pathfinding-strategies-within-lightning-network-clients/1500" target="_blank" class="news-link">Visit Delving Bitcoin</a>
+                        </p>
+                    </div>
+                </div>
+                
+                
+                <div class="news-item">
+                    <div class="news-icon">
+                        <i class="fas fa-podcast"></i>
+                    </div>
+                    <div class="news-content">
+                        <!--<span class="news-date">March 2025</span>-->
+                        <h3><strong>Podcast:</strong></h3>
+                        <p>
+                            <a href="https://x.com/bitcoinoptech/status/1902020544410931689" target="_blank" class="news-link">Bitcoin Optech: Podcast #345</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <!--
+                <div class="news-item">
+                    <div class="news-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">May 2025</span>
+                        <h3><strong>Upcoming Presentation:</strong></h3>
+                        <p>
+                            <i>Optimal Threshold Multsignature scheme for Bitcoin</i> at Stanford University.
+                        </p>
+                    </div>
+                </div>
+                -->
+                
+                
+                <div class="news-item">
+                    <div class="news-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="news-content">
+                        <!--<span class="news-date">March 2025</span>-->
+                        <h3><strong>News:</strong></h3>
+                        <p>
+                            <a href="https://bitcoinops.org/en/newsletters/2025/03/14/" target="_blank" class="news-link">Bitcoin Optech: Newsletter #345</a>
+                        </p>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </section>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Sindura Saraswathi. All rights reserved.</p>
+    </footer>
 </body>
 </html>
