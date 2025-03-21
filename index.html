@@ -554,38 +554,68 @@
         
         
 
-        /* Mobile Adjustments */
+                /* Mobile Specific Styles */
         @media (max-width: 768px) {
-            /* Sidebar toggle on mobile */
+            /* Sidebar is hidden on mobile by default */
             .sidebar {
-                left: -300px; /* Sidebar hidden off-screen */
+                left: -250px; /* Initially hidden */
             }
-
+        
             .sidebar.expanded {
-                left: 0; /* Sidebar is visible when expanded */
+                left: 0; /* Show sidebar when expanded */
             }
-
-            /* Navbar fully visible */
+        
+            /* Navbar remains visible at top */
             nav {
                 left: 0;
+                width: 100%;
             }
-
+        
+            /* Hide navbar links by default */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+        
+            /* Show the navbar links when active (when menu is toggled) */
+            nav.active ul {
+                display: flex;
+            }
+        
+            /* Show the hamburger menu icon only on mobile */
             .menu-icon {
-                display: block;
+                display: block; /* Display the hamburger icon */
                 position: absolute;
                 top: 10px;
                 right: 20px;
                 font-size: 30px;
                 cursor: pointer;
+                z-index: 300; /* Ensures the icon is on top of sidebar */
             }
-
-            /* Adjust content layout on mobile */
+        
+            /* Main content layout on mobile */
             .content {
-                margin-left: 0; /* Content will occupy full width */
+                margin-left: 0; /* Content will occupy full width on mobile */
+                padding-top: 60px; /* Add space for the fixed navbar */
             }
-
+        
+            /* Show expanded content when sidebar is open */
             .content.expanded {
-                margin-left: 250px; /* Offset the content when sidebar is expanded */
+                margin-left: 250px; /* Content shifts when sidebar expands */
+            }
+        
+            /* Hide sidebar and menu icon for larger screens */
+            .menu-icon {
+                display: none; /* Hide the hamburger menu by default on larger screens */
+            }
+        }
+        
+        @media (min-width: 769px) {
+            /* On larger screens, remove the menu icon completely */
+            .menu-icon {
+                display: none; /* Hide on screens larger than 768px */
             }
         }
 
