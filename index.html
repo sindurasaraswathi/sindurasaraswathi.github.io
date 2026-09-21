@@ -786,6 +786,7 @@ footer {
             <a href="#publications">Publications</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
+            <a href="#awards">Awards</a>
             <a href="#presentations">Presentations</a>
             <a href="#news">Updates</a>
         </div>
@@ -800,6 +801,7 @@ footer {
         <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
         <a href="#presentations">Presentations</a>
         <a href="#news">Updates</a>
     </div>
@@ -815,6 +817,7 @@ footer {
             <button onclick="window.location.href='#publications'">Publications</button>
             <button onclick="window.location.href='#experience'">Experience</button>
             <button onclick="window.location.href='#education'">Education</button>
+            <button onclick="window.location.href='#awards'">Awards</button>
             <button onclick="window.location.href='#presentations'">Presentations</button>
             <button onclick="window.location.href='#news'">Updates</button>
         </div>
@@ -843,23 +846,51 @@ footer {
                 <a href="https://scholar.google.com/citations?user=7P6hqWYAAAAJ&hl=en&oi=ao" target="_blank"><i class="fas fa-graduation-cap"></i></a>
             </div>
             </div>
+            
             <div class="about-content" style="margin-top: 20px;">
                 <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
-                    
-                    Hi, I am a PhD student at the University of Central Florida, where I work on Bitcoin and the Lightning Network. I am fortunate to be advised by 
-                    <a href="https://sciences.ucf.edu/math/person/christian-kummerle/" target="_blank" style="color: #01579B; font-weight: bold;">Dr. Christian Kümmerle</a>. 
-                </p>
-                 <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
-                      Broadly, I care about how to make Bitcoin actually usable at scale: faster payments, more reliable routing, and safer ways to hold coins. Right now my research focuses on two main threads.
-                      On the Lightning side, I study pathfinding and multi-part payments when channel liquidity is uncertain - how to pick routes that are both cheap and likely to succeed.
-                      On the custody side, I work on optimal threshold signature schemes for Bitcoin, asking how to choose m-of-n setups that balance security, and usability complexity.
+                    Hi, I am a PhD student in Computer Science at the University of Central Florida, 
+                    advised by 
+                    <a href="https://sciences.ucf.edu/math/person/christian-kummerle/" 
+                       target="_blank" 
+                       style="color: #01579B; font-weight: bold;">
+                       Dr. Christian Kümmerle
+                    </a>.
+                    My research lies at the intersection of 
+                    <strong>network optimization, routing, and distributed payment systems</strong>.
+                    I am broadly interested in designing scalable algorithms for routing and resource 
+                    allocation in large networks, particularly when link capacities or other network 
+                    states are uncertain or only partially observable.
                 </p>
                 
-                 <p style="font-size: 1.1rem; color: #333; line-height: 1.6; margin-top: 20px;">
-                  I don’t just see Bitcoin as a research topic; I genuinely like it and the idea of global currency that anyone can use. If you are working on Lightning, Bitcoin custody, or related protocol questions, I am always happy to chat and collaborate.
+                <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+                    On the network optimization side, I work on 
+                    <strong>fixed-charge and minimum-cost network flow, multi-path routing, 
+                    nonconvex optimization, and scalable numerical methods</strong>.
+                    My research explores how combinatorial routing and link-activation decisions can 
+                    be handled using continuous optimization techniques such as iteratively reweighted 
+                    least squares, semismooth Newton methods, and graph-Laplacian solvers.
+                    I am especially interested in applying these ideas to large-scale routing, 
+                    traffic allocation, and network decision-making problems under uncertainty.
                 </p>
+                
+                <p style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+                    Bitcoin and the Lightning Network are a major application area of this work.
+                    I study Lightning pathfinding and multi-part payments, where a sender must choose 
+                    routes and allocate traffic without knowing the exact liquidity available on each 
+                    channel. This provides a practical setting for studying reliability-aware routing, 
+                    uncertain network capacity, and cost-efficient multi-path allocation.
+                    I also work on Bitcoin custody and threshold-signature design, with the broader goal 
+                    of making non-custodial Bitcoin systems more reliable, scalable, and usable.
+                </p>
+                
                 <p style="font-size: 1.1rem; color: #333; line-height: 1.6; margin-top: 20px;">
-                    Beyond my academic pursuits, I am a trained Indian classical singer. I enjoy solving Rubik's cubes, traveling, and playing badminton.
+                    More broadly, I am interested in problems where 
+                    <strong>optimization, networking, and real-world systems</strong> meet:
+                    developing algorithms that are mathematically principled, computationally scalable, 
+                    and useful in deployed networks. I am always happy to connect with researchers and 
+                    practitioners working on network optimization, routing, Bitcoin, Lightning, or 
+                    related systems problems.
                 </p>
             </div>
         </section>
@@ -903,6 +934,30 @@ footer {
             <a class="btn-cite" href="#" onclick="showCitationPopup('citationPopup1')">Cite</a>
             <a class="btn-cite" href="https://github.com/sindurasaraswathi/LN-PathFinding" target="_blank">Code</a>
         </ul>
+        <ul>
+                <i class="fas fa-file-alt"></i>
+            
+                <p style="display: inline; margin-left: 10px;">
+                    <strong>Sindura Saraswathi</strong>, Christian Kümmerle.
+                    <i>Support Discovery With Iteratively Reweighted Least Squares for Fixed-Charge Network Flow</i>.
+                    arXiv preprint arXiv:2609.09295, 2026.
+                    (Under review).
+                </p>
+            
+                <br><br>
+            
+                <a class="btn-cite"
+                   href="https://arxiv.org/pdf/2609.09295"
+                   target="_blank">
+                    arXiv
+                </a>
+            
+                <a class="btn-cite"
+                   href="#"
+                   onclick="showCitationPopup('citationPopup3'); return false;">
+                    Cite
+                </a>
+            </ul>
             
             <ul>
 
@@ -941,6 +996,7 @@ footer {
             <button class="close-btn" onclick="closeCitationPopup('citationPopup1')">Close</button>
         </div>
 
+
              <div class="citation-popup" id="citationPopup2">
             <h3>Citation Information</h3>
             <p><strong>Title:</strong>Optimal Threshold Signatures in Bitcoin</p>
@@ -959,6 +1015,46 @@ footer {
             </p>
             <button class="close-btn" onclick="closeCitationPopup('citationPopup2')">Close</button>
         </div>
+            
+            <div class="citation-popup" id="citationPopup3">
+        <h3>Citation Information</h3>
+    
+        <p>
+            <strong>Title:</strong>
+            Support Discovery With Iteratively Reweighted Least Squares for Fixed-Charge Network Flow
+        </p>
+    
+        <p>
+            <strong>Authors:</strong>
+            Sindura Saraswathi, Christian Kümmerle
+        </p>
+    
+        <p>
+            <strong>Journal/Conference:</strong>
+            arXiv preprint arXiv:2609.09295
+        </p>
+    
+        <p>
+            <strong>Year:</strong> 2026
+        </p>
+    
+        <br>
+    
+        <h4>BibTeX</h4>
+    
+        <p>
+    @article{saraswathi2026support,<br>
+    &nbsp;&nbsp;title={Support Discovery With Iteratively Reweighted Least Squares for Fixed-Charge Network Flow},<br>
+    &nbsp;&nbsp;author={Saraswathi, Sindura and Kümmerle, Christian},<br>
+    &nbsp;&nbsp;journal={arXiv preprint arXiv:2609.09295},<br>
+    &nbsp;&nbsp;year={2026}<br>
+    }
+        </p>
+    
+        <button class="close-btn" onclick="closeCitationPopup('citationPopup3')">
+            Close
+        </button>
+    </div>
     
         
         <!-- Industry Experience Section -->
@@ -1037,6 +1133,7 @@ footer {
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h4>Reviewer</h4>
+                        <p>Journal of Complex Networks</p>
                         <p>IEEE International Conference on Blockchain Computing and Applications (BCCA 2026)</p>
                     </div>
                 </div>
@@ -1092,6 +1189,25 @@ footer {
                         <h3><strong>B.E. in Electronics and Communication Engineering</strong></h3>
                         <h4>Visvesvaraya Technological University, India</h4>
                         <p>August 2015 - July 2019</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards & Honors Section -->
+        <section id="awards" class="left-column">
+            <h2 class="section-title">Awards & Honors</h2>
+        
+            <div class="education-container">
+                <div class="education-entry">
+                    <div class="icon-container">
+                        <i class="fas fa-medal"></i>
+                    </div>
+        
+                    <div class="education-content">
+                        <h3><strong>University First Rank & Recipient of 6 Gold Medals</strong></h3>
+                        <h4>Visvesvaraya Technological University (VTU), India</h4>
+                        <p>B.E. in Electronics and Communication Engineering</p>
                     </div>
                 </div>
             </div>
